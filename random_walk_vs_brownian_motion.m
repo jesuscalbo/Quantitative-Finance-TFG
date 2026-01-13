@@ -1,53 +1,65 @@
-%% Donsker: paseo aleatorio vs. browniano
-rng(123)
-N = 250;  M = 5;  T = 1;  dt = T/N;     % parámetros
-t = linspace(0,T,N+1);
+%% Donsker's Invariance Principle Simulation
+% Context: Bachelor Thesis (TFG) - Physics/Math
+% Purpose: Visualizing the convergence of a Scaled Random Walk to Brownian Motion.
 
-clf
-fig = figure('Name','Donsker – paseo vs. browniano',...
-             'Units','normalized','Position',[.1 .1 .8 .7]);
+clear; clc; clf;
+rng(123); % Fixed seed for reproducibility
 
-% (1) Paseo aleatorio reescalado
+% --- Parameters ---
+N = 250;        % Number of time steps
+M = 5;          % Number of sample paths to plot
+T = 1;          % Time horizon
+dt = T/N;       % Time increment
+t = linspace(0, T, N+1);
+
+% Setup figure
+fig = figure('Name', 'Donsker Convergence Analysis', ...
+             'Units', 'normalized', 'Position', [.1 .1 .8 .7]);
+
+% --- 1. Scaled Random Walk (The Discrete Process) ---
+% X_i = +/- 1 with p=0.5. Scaled by 1/sqrt(N)
 subplot(2,2,1); hold on; box on; grid on
 for m = 1:M
-    xi = 2*(rand(N,1)>0.5)-1;                % +-1 equiprobables
-    S  = [0; cumsum(xi)]./sqrt(N);           % escalado sqrt(N)
-    stairs(t,S,'LineWidth',1.1)
+    xi = 2*(rand(N,1)>0.5) - 1;      
+    S  = [0; cumsum(xi)] ./ sqrt(N); 
+    stairs(t, S, 'LineWidth', 1.1)
 end
-xlabel('t'); ylabel('Posición')
-title('Paseo aleatorio reescalado')
+xlabel('t'); ylabel('S_n (Scaled)');
+title('Scaled Random Walk');
 
-% (2) Browniano simulado 
+% --- 2. Brownian Motion (The Limit Process) ---
+% W_t ~ N(0, t). Increments are N(0, dt)
 subplot(2,2,3); hold on; box on; grid on
 for m = 1:M
-    W = [0; cumsum(sqrt(dt)*randn(N,1))];
-    plot(t,W,'LineWidth',1.1)
+    dW = sqrt(dt) * randn(N,1);
+    W  = [0; cumsum(dW)];
+    plot(t, W, 'LineWidth', 1.1)
 end
-xlabel('t'); ylabel('W_t')
-title('Movimiento browniano')
+xlabel('t'); ylabel('W_t');
+title('Brownian Motion Simulation');
 
-% (3) Comparación trayectoria a trayectoria
+% --- 3. Functional Convergence Comparison ---
 subplot(1,2,2); hold on; box on; grid on
-xi = 2*(rand(N,1)>0.5)-1;  S = [0; cumsum(xi)]./sqrt(N);
-W  = [0; cumsum(sqrt(dt)*randn(N,1))];
-stairs(t,S,'r','LineWidth',2)
-plot(t,W,'b','LineWidth',2)
-legend('Paseo reescalado','Browniano','Location','southwest')
-xlabel('t'); ylabel('Valor')
-title('Convergencia de una trayectoria')
 
-sgtitle('Convergencia funcional de Donsker: paseo \rightarrow browniano')
+% Generating a single realization for direct comparison
+xi_sample = 2*(rand(N,1)>0.5) - 1; 
+S_sample  = [0; cumsum(xi_sample)] ./ sqrt(N);
+% Note: Mathematically, we compare distribution, but visually we overlay an independent BM to show scale similarity.
+W_sample  = [0; cumsum(sqrt(dt)*randn(N,1))];
 
-carpeta = fullfile('C:','Users','User', ...
-                   'Documents','Jesús', 'UNI', '5º Carrera', 'TFG');
+stairs(t, S_sample, 'r', 'LineWidth', 1.5, 'DisplayName', 'Random Walk (n=250)')
+plot(t, W_sample, 'b', 'LineWidth', 1.5, 'DisplayName', 'Brownian Motion')
 
-if ~exist(carpeta,'dir')         % crea la carpeta si no existe
-    mkdir(carpeta)
+legend('Location','southwest');
+xlabel('t'); ylabel('Value');
+title('Trajectory Comparison');
+sgtitle('Donsker''s Theorem: Weak Convergence');
+
+% --- Save Output ---
+% Using relative path to ensure portability across systems
+if ~exist('output', 'dir')
+    mkdir('output');
 end
-
-   % mantiene líneas y texto vectoriales
-
-fname = fullfile(carpeta,'paseo_vs_browniano.pdf');
-% Guardar (300 dpi) y confirmar en pantalla
-print(fig,fname,'-dpdf','-painters')
-disp(['Figura guardada en: ', fname])
+fname = fullfile('output', 'donsker_simulation.pdf');
+print(fig, fname, '-dpdf', '-painters');
+fprintf('Figure saved successfully to: %s\n', fname);
