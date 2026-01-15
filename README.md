@@ -61,3 +61,19 @@ Files:
    ```bash
    git clone https://github.com/jesuscalbo/Quantitative-Finance-TFG.git
    cd Quantitative-Finance-TFG
+## Results
+
+### Donsker: Random Walk → Brownian Motion
+![Donsker](results/donsker_rw_to_bm.jpg)
+
+### Strong convergence: Euler–Maruyama vs Milstein
+![EM vs Milstein](results/em_vs_milstein_convergence.png)
+
+### Efficient frontier (synthetic example)
+![Efficient frontier](results/efficient_frontier.png)
+
+### Black–Scholes: trajectories, martingale, terminal lognormality
+![Black–Scholes](results/black_scholes_martingale_lognormal.png)
+
+### Efficient frontiers (Long-only)
+![Long-only frontiers](results/efficient_frontiers_long_only.png)
