@@ -1,5 +1,5 @@
 %% Donsker's Invariance Principle Simulation
-% Context: Bachelor Thesis (TFG) - Physics/Math
+% Context: Bachelor Thesis (TFG) - Math
 % Purpose: Visualizing the convergence of a Scaled Random Walk to Brownian Motion.
 
 clear; clc; clf;
@@ -63,3 +63,4 @@ end
 fname = fullfile('output', 'donsker_simulation.pdf');
 print(fig, fname, '-dpdf', '-painters');
 fprintf('Figure saved successfully to: %s\n', fname);
+
