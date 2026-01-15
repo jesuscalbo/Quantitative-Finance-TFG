@@ -17,8 +17,8 @@ The implementation is mainly in **MATLAB**, with a small **Python** component.
 - Visualization and basic empirical checks consistent with the scaling limit intuition.
 
 Files:
-- `scripts/random_walk_vs_brownian_motion.m`
-- `scripts/random_walk_vs_brownian_motion.py` (Python version)
+- [`scripts/random_walk_vs_brownian_motion.m`](scripts/random_walk_vs_brownian_motion.m)
+- [`scripts/random_walk_vs_brownian_motion.py`](scripts/random_walk_vs_brownian_motion.py) (Python version)
 
 ### 2) Euler–Maruyama vs. Milstein (SDE simulation)
 - Simulation of SDE trajectories under two classic discretization schemes.
