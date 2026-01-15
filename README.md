@@ -25,32 +25,32 @@ Files:
 - Comparison of numerical behavior and convergence intuition.
 
 Files:
-- `scripts/euler_maruyama_vs_milstein.m`
+- [`scripts/euler_maruyama_vs_milstein.m`](`scripts/euler_maruyama_vs_milstein.m`)
 
 ### 3) Efficient frontier example (Markowitz)
 - Mean–variance optimization and efficient frontier construction on market data.
 - Emphasis on constraints and numerical stability considerations.
 
 Files:
-- `scripts/efficient_frontier_example.m`
+- [`scripts/efficient_frontier_example.m`](`scripts/efficient_frontier_example.m`)
 
 ### 4) Data download utility
 - Helper to retrieve or preprocess historical price series used in examples.
 
 Files:
-- `scripts/DownloadDiaryPrices.m` (folder)
+- [`scripts/DownloadDiaryPrices.m`](`scripts/DownloadDiaryPrices.m`) (folder)
 
 ### 5) Black–Scholes / martingale viewpoint (conceptual + numerical support)
 - Supporting code and notes connected to the Black–Scholes framework and martingale arguments.
 
 Files:
-- `scripts/black_scholes_martingale.m` (file/folder)
+- [`scripts/black_scholes_martingale.m`](`scripts/black_scholes_martingale.m`) (file/folder)
 
 ### 6) Long-only portfolio optimization
 - Constrained portfolio allocation under long-only constraints.
 
 Files:
-- `scripts/portfolio_long_only.m` (file/folder)
+- [`scripts/portfolio_long_only.m`](`scripts/portfolio_long_only.m`) (file/folder)
 
 ---
 
