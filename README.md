@@ -54,13 +54,6 @@ Files:
 
 ---
 
-## How to run
-
-### MATLAB
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/jesuscalbo/Quantitative-Finance-TFG.git
-   cd Quantitative-Finance-TFG
 ## Results
 
 ### Donsker: Random Walk → Brownian Motion
@@ -77,3 +70,11 @@ Files:
 
 ### Efficient frontiers (Long-only)
 ![Long-only frontiers](results/efficient_frontiers_long_only.png)
+## How to run
+
+### MATLAB
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/jesuscalbo/Quantitative-Finance-TFG.git
+   cd Quantitative-Finance-TFG
+
