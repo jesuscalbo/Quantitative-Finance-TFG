@@ -17,40 +17,40 @@ The implementation is mainly in **MATLAB**, with a small **Python** component.
 - Visualization and basic empirical checks consistent with the scaling limit intuition.
 
 Files:
-- `random_walk_vs_brownian_motion.m`
-- `random_walk_vs_brownian_motion.py` (Python version)
+- `scripts/random_walk_vs_brownian_motion.m`
+- `scripts/random_walk_vs_brownian_motion.py` (Python version)
 
 ### 2) Euler–Maruyama vs. Milstein (SDE simulation)
 - Simulation of SDE trajectories under two classic discretization schemes.
 - Comparison of numerical behavior and convergence intuition.
 
 Files:
-- `euler_maruyama_vs_milstein.m`
+- `scripts/euler_maruyama_vs_milstein.m`
 
 ### 3) Efficient frontier example (Markowitz)
 - Mean–variance optimization and efficient frontier construction on market data.
 - Emphasis on constraints and numerical stability considerations.
 
 Files:
-- `efficient_frontier_example.m`
+- `scripts/efficient_frontier_example.m`
 
 ### 4) Data download utility
 - Helper to retrieve or preprocess historical price series used in examples.
 
 Files:
-- `DownloadDiaryPrices` (folder)
+- `scripts/DownloadDiaryPrices.m` (folder)
 
 ### 5) Black–Scholes / martingale viewpoint (conceptual + numerical support)
 - Supporting code and notes connected to the Black–Scholes framework and martingale arguments.
 
 Files:
-- `BlackScholes_Martingala` (file/folder)
+- `scripts/black_scholes_martingale.m` (file/folder)
 
 ### 6) Long-only portfolio optimization
 - Constrained portfolio allocation under long-only constraints.
 
 Files:
-- `Portfolio_LongOnly` (file/folder)
+- `scripts/portfolio_long_only.m` (file/folder)
 
 ---
 
@@ -70,11 +70,5 @@ Files:
 
 ### Efficient frontiers (Long-only)
 ![Long-only frontiers](results/efficient_frontiers_long_only.png)
-## How to run
 
-### MATLAB
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/jesuscalbo/Quantitative-Finance-TFG.git
-   cd Quantitative-Finance-TFG
 
